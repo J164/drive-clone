@@ -1,10 +1,7 @@
-import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
-import Button from "~/components/Button";
+import HomeComponent from "~/components/Home";
 
 export default function Home() {
-  const { data: session } = useSession();
-
   return (
     <>
       <Head>
@@ -18,11 +15,7 @@ export default function Home() {
             Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
           </h1>
 
-          {session ? (
-            <Button onClick={() => signOut()} btnClass='btn-primary' title='Sign Out'/>
-          ) : (
-            <Button onClick={() => signIn()} btnClass='btn-primary' title='Sign Up'/>
-          )}
+          <HomeComponent/>
         </div>
       </main>
     </>
